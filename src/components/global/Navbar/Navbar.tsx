@@ -1,6 +1,6 @@
 // Components
-import SearchBar from "../SearchBar/SearchBar";
 import CategoriesMenu from "../../home/CategoriesMenu/CategoriesMenu";
+import SearchAmiibos from "../SearchAmiibos/SearchAmiibos";
 // Types
 import { NavbarProps as Props } from "./Navbar.types";
 
@@ -10,11 +10,11 @@ const Navbar: React.FC<Props> = (props) => {
   return (
     <div className="Navbar">
       <div className="Navbar__wrapper">
-        <div className="Navbar__logo">
+        <picture className="Navbar__logo">
           <img src={logoDesktop} alt="Logo Amiibo" />
-        </div>
+        </picture>
 
-        <SearchBar />
+        <SearchAmiibos />
 
         <CategoriesMenu />
       </div>
