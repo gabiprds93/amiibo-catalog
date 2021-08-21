@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 
 // Components
 import SearchBar from "../SearchBar/SearchBar";
+import Backdrop from "../Backdrop/Backdrop";
+// Contexts
+import useAmiibos from "../../../contexts/amiibos/amiibos.hooks";
 // Services
 import { useFetchAmiibos } from "../../../services/amiibos/amiibos.service.hooks";
 // Types
@@ -11,7 +14,8 @@ import { Amiibo } from "../../../types/amiibos.types";
 
 const SearchAmiibos: React.FC<Props> = (props) => {
   const [searchText, setSearchText] = useState("");
-  const [amiibosFilter, setAmiibosFilter] = useState<Amiibo[]>();
+  const [showResults, setShowResults] = useState(false);
+  const { amiibosFiltered, setAmiibosFiltered } = useAmiibos();
   const { data: amiibos } = useFetchAmiibos();
 
   /** Function to handle search input.
@@ -28,41 +32,56 @@ const SearchAmiibos: React.FC<Props> = (props) => {
    * @param {string} value The value of the input
    */
   const searchAmiibos = (value: string) => {
-    const amiibosFilter = amiibos?.filter((amiibo) => {
-      const lowerCaseName = amiibo.name.toLowerCase();
-      const lowerCaseValue = value.toLowerCase();
+    let results: Amiibo[] | undefined;
 
-      return lowerCaseName.includes(lowerCaseValue);
-    });
+    if (value) {
+      results = amiibos?.filter((amiibo) => {
+        const lowerCaseName = amiibo.name.toLowerCase();
+        const lowerCaseValue = value.toLowerCase();
 
-    setAmiibosFilter(amiibosFilter);
+        return lowerCaseName.includes(lowerCaseValue);
+      });
+    }
+
+    setShowResults(!!results?.length);
+    setAmiibosFiltered(results);
+  };
+
+  const onBackdropClicked = () => {
+    setShowResults(false);
   };
 
   return (
     <div className="SearchAmiibos">
       <SearchBar placeholder="Buscar amiibo" onChange={searchInputHandler}>
-        {amiibosFilter?.slice(0, 4).map((amiibo, index) => {
-          const { name, amiiboSeries, image } = amiibo;
+        {showResults ? (
+          <>
+            {amiibosFiltered?.slice(0, 4).map((amiibo, index) => {
+              const { name, amiiboSeries, image } = amiibo;
 
-          return (
-            <div className="SearchAmiibos__item" key={index}>
-              <picture className="SearchAmiibos__item__image">
-                <img src={image} alt={`Amiibo ${name}`} />
-              </picture>
+              return (
+                <div className="SearchAmiibos__item" key={index}>
+                  <picture className="SearchAmiibos__item__image">
+                    <img src={image} alt={`Amiibo ${name}`} />
+                  </picture>
 
-              <span className="SearchAmiibos__item__info">{`${name} / ${amiiboSeries}`}</span>
-            </div>
-          );
-        })}
+                  <span className="SearchAmiibos__item__info">{`${name} / ${amiiboSeries}`}</span>
+                </div>
+              );
+            })}
 
-        {amiibosFilter ? (
-          <div className="SearchAmiibos__search">
-            <Link className="SearchAmiibos__search__link" to="/results">
-              {`Buscar todos "${searchText}"`}
-            </Link>
-          </div>
+            {amiibosFiltered?.length ? (
+              <div className="SearchAmiibos__search">
+                <Link className="SearchAmiibos__search__link" to="/results">
+                  {`Buscar todos "${searchText}"`}
+                </Link>
+              </div>
+            ) : null}
+          </>
         ) : null}
       </SearchBar>
+
+      <Backdrop opened={showResults} onClick={onBackdropClicked} />
     </div>
   );
 };

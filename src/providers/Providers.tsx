@@ -3,6 +3,8 @@ import { QueryClientProvider, QueryClient } from "react-query";
 
 // Routes
 import Routes from "../routes/Routes";
+// Contexts
+import AmiibosProvider from "../contexts/amiibos/amiibos.context";
 // Types
 import { ProvidersProps as Props } from "./Providers.types";
 
@@ -21,7 +23,9 @@ const Providers: React.FC<Props> = (props) => {
 
   return (
     <QueryClientProvider client={queryClientRef.current}>
-      <Routes />
+      <AmiibosProvider>
+        <Routes />
+      </AmiibosProvider>
     </QueryClientProvider>
   );
 };

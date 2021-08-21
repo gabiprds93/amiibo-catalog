@@ -91,12 +91,14 @@
   align-items: center;
   display: flex;
   flex: 1;
+  background-color: #fff;
   border: 1px solid #e7e8e9;
   border-radius: 4.2rem;
   justify-content: space-between;
   margin-left: 1.6rem;
   padding: 0 2.4rem;
   position: relative;
+  z-index: 100;
 }
 .SearchBar input {
   border: none;
@@ -106,7 +108,10 @@
   outline: none;
   padding: 1.6rem 1.6rem 1.6rem 0;
 }
-.SearchBar__icon {
+.SearchBar__link {
+  padding: 0.8rem;
+}
+.SearchBar__link__icon {
   width: 2.4rem;
 }
 .SearchBar__results {
@@ -122,6 +127,16 @@
 }
 .SearchBar__results > div:last-child {
   border: none;
+}
+.Backdrop {
+  background-color: rgba(0,0,0,0.2);
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 99;
 }
 .CategoriesMenu {
   align-items: center;

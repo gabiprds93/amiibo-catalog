@@ -2,12 +2,14 @@
   align-items: center;
   display: flex;
   flex: 1;
+  background-color: $color-white;
   border: 1px solid $color-border;
   border-radius: 4.2rem;
   justify-content: space-between;
   margin-left: 1.6rem;
   padding: 0 2.4rem;
   position: relative;
+  z-index: 100;
 
   & input
     border: none;
@@ -17,8 +19,11 @@
     outline: none;
     padding: 1.6rem 1.6rem 1.6rem 0;
 
-  &__icon
-    width: 2.4rem;
+  &__link
+    padding: 0.8rem;
+
+    &__icon
+      width: 2.4rem;
 
   &__results
     background-color: $color-white;
