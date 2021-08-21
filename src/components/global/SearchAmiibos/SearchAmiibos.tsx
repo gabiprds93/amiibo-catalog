@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 // Components
 import SearchBar from "../SearchBar/SearchBar";
@@ -15,8 +15,10 @@ import { Amiibo } from "../../../types/amiibos.types";
 const SearchAmiibos: React.FC<Props> = (props) => {
   const [searchText, setSearchText] = useState("");
   const [showResults, setShowResults] = useState(false);
-  const { amiibosFiltered, setAmiibosFiltered } = useAmiibos();
+  const [results, setResults] = useState<Amiibo[]>();
+  const { setAmiibosFiltered } = useAmiibos();
   const { data: amiibos } = useFetchAmiibos();
+  const { push } = useHistory();
 
   /** Function to handle search input.
    *
@@ -32,10 +34,10 @@ const SearchAmiibos: React.FC<Props> = (props) => {
    * @param {string} value The value of the input
    */
   const searchAmiibos = (value: string) => {
-    let results: Amiibo[] | undefined;
+    let amiiboResults: Amiibo[] | undefined;
 
     if (value) {
-      results = amiibos?.filter((amiibo) => {
+      amiiboResults = amiibos?.filter((amiibo) => {
         const lowerCaseName = amiibo.name.toLowerCase();
         const lowerCaseValue = value.toLowerCase();
 
@@ -43,20 +45,36 @@ const SearchAmiibos: React.FC<Props> = (props) => {
       });
     }
 
+    setResults(amiiboResults);
     setShowResults(!!results?.length);
-    setAmiibosFiltered(results);
   };
 
-  const onBackdropClicked = () => {
+  /** Function to close backdrop.
+   *
+   */
+  const handleCloseBackdrop = () => {
+    setShowResults(false);
+  };
+
+  /** Function to handle search.
+   *
+   */
+  const handleSearch = () => {
+    setAmiibosFiltered(results);
+    push("/results");
     setShowResults(false);
   };
 
   return (
     <div className="SearchAmiibos">
-      <SearchBar placeholder="Buscar amiibo" onChange={searchInputHandler}>
+      <SearchBar
+        placeholder="Buscar amiibo"
+        onChange={searchInputHandler}
+        onSearch={handleSearch}
+      >
         {showResults ? (
           <>
-            {amiibosFiltered?.slice(0, 4).map((amiibo, index) => {
+            {results?.slice(0, 4).map((amiibo, index) => {
               const { name, amiiboSeries, image } = amiibo;
 
               return (
@@ -70,18 +88,21 @@ const SearchAmiibos: React.FC<Props> = (props) => {
               );
             })}
 
-            {amiibosFiltered?.length ? (
+            {results?.length ? (
               <div className="SearchAmiibos__search">
-                <Link className="SearchAmiibos__search__link" to="/results">
+                <div
+                  className="SearchAmiibos__search__link"
+                  onClick={handleSearch}
+                >
                   {`Buscar todos "${searchText}"`}
-                </Link>
+                </div>
               </div>
             ) : null}
           </>
         ) : null}
       </SearchBar>
 
-      <Backdrop opened={showResults} onClick={onBackdropClicked} />
+      <Backdrop opened={showResults} onClick={handleCloseBackdrop} />
     </div>
   );
 };

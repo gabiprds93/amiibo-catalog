@@ -1,18 +1,16 @@
 // Components
 import AmiiboItem from "../AmiiboItem/AmiiboItem";
-// Services
-import { useFetchAmiibos } from "../../../services/amiibos/amiibos.service.hooks";
 // Types
 import { AmiiboListProps as Props } from "./AmiiboList.types";
 
 const AmiiboList: React.FC<Props> = (props) => {
-  const { data: amiibos } = useFetchAmiibos();
+  const { list } = props;
 
   return (
     <div className="AmiiboList">
       <div className="AmiiboList__content">
-        {amiibos?.map((amiibo, index) => {
-          return <AmiiboItem key={index} item={amiibo} />;
+        {list?.map((item, index) => {
+          return <AmiiboItem key={index} item={item} />;
         })}
       </div>
     </div>

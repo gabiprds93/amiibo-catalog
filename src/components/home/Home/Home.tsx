@@ -1,10 +1,14 @@
 // Components
 import AmiiboList from "../../global/AmiiboList/AmiiboList";
 import Navbar from "../../global/Navbar/Navbar";
+// Services
+import { useFetchAmiibos } from "../../../services/amiibos/amiibos.service.hooks";
 // Types
 import { HomeProps as Props } from "./Home.types";
 
 const Home: React.FC<Props> = (props) => {
+  const { data: amiibos } = useFetchAmiibos();
+
   return (
     <div className="Home">
       <header className="Home__header">
@@ -12,7 +16,7 @@ const Home: React.FC<Props> = (props) => {
       </header>
 
       <main className="Home__main">
-        <AmiiboList />
+        <AmiiboList list={amiibos} />
       </main>
 
       <footer className="Home__footer" />

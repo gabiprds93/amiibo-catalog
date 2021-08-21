@@ -1,5 +1,4 @@
 import { ChangeEvent, KeyboardEvent, useState } from "react";
-import { Link, useHistory } from "react-router-dom";
 
 // Types
 import { SearchBarProps as Props } from "./SearchBar.types";
@@ -7,9 +6,8 @@ import { SearchBarProps as Props } from "./SearchBar.types";
 import searchSVG from "../../../assets/images/search-solid.svg";
 
 const SearchBar: React.FC<Props> = (props) => {
-  const { placeholder, onChange, children } = props;
+  const { placeholder, onChange, onSearch, children } = props;
   const [value, setValue] = useState("");
-  const { push } = useHistory();
 
   /** Function to handle chage of the input.
    *
@@ -27,7 +25,7 @@ const SearchBar: React.FC<Props> = (props) => {
    */
   const handleKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter" && value) {
-      push("/results");
+      onSearch();
     }
   };
 
@@ -40,11 +38,11 @@ const SearchBar: React.FC<Props> = (props) => {
         onKeyPress={handleKeyPress}
       />
 
-      <Link to="/results" className="SearchBar__link">
+      <div className="SearchBar__link" onClick={onSearch}>
         <div className="SearchBar__link__icon">
           <img src={searchSVG} alt="Icono para buscar" />
         </div>
-      </Link>
+      </div>
 
       <div className="SearchBar__results">{children}</div>
     </div>
