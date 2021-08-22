@@ -209,6 +209,20 @@
 .Results__main {
   padding-top: 8rem;
 }
+.Categories {
+  padding-top: 8rem;
+}
+.Categories__header {
+  background: #fff;
+  height: 8rem;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+.Categories__main {
+  padding-top: 8rem;
+}
 *,
 *::before,
 *::after {

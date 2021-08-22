@@ -15,7 +15,7 @@ const Providers: React.FC<Props> = (props) => {
     queryClientRef.current = new QueryClient({
       defaultOptions: {
         queries: {
-          refetchOnWindowFocus: true,
+          refetchOnWindowFocus: false,
         },
       },
     });

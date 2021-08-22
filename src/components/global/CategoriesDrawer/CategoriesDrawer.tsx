@@ -17,12 +17,13 @@ const CategoriesDrawer: React.FC<Props> = (props) => {
   const amiiboSeries = amiibos?.map((amiibo) => amiibo.amiiboSeries);
   const categories = getCategoriesHelper(amiiboSeries);
 
-   /** Function to rediret to categories page.
+  /** Function to redirect to categories page.
    *
    * @param {string} category The category of the amiibo
    */
   const handleClickCategory = (category: string) => {
     push(`/categories/${category}`);
+    onClose();
   };
 
   if (!opened) return null;

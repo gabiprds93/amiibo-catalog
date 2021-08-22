@@ -1,19 +1,24 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-// Pages
-import Home from "../components/home/Home/Home";
-import Results from "../components/results/Results/Results";
+// Pages./components/results/Results/Results";
+import HomeContainer from "../pages/Home.page";
+import CategoriesContainer from "../pages/Categories.page";
+import ResultsContainer from "../pages/Results.page";
 
 const Routes = () => {
   return (
     <Router>
       <Switch>
         <Route exact path="/">
-          <Home />
+          <HomeContainer />
         </Route>
 
         <Route path="/results">
-          <Results />
+          <ResultsContainer />
+        </Route>
+
+        <Route path="/categories/:amiiboSeries">
+          <CategoriesContainer />
         </Route>
       </Switch>
     </Router>
