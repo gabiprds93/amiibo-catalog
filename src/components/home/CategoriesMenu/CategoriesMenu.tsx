@@ -20,7 +20,7 @@ const CategoriesMenu: React.FC<Props> = (props) => {
   return (
     <div className="CategoriesMenu">
       <div onClick={drawerHandler} className="CategoriesMenu__wrapper">
-        <span className="CategoriesMenu__text">Categorias</span>
+        <span className="CategoriesMenu__text">Categorías</span>
 
         <div className="CategoriesMenu__icon">
           <img src={barsSVG} alt="Menú de barras" />

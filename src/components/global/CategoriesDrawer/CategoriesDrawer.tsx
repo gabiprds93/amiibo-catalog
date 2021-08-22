@@ -9,6 +9,8 @@ import { useFetchAmiibos } from "../../../services/amiibos/amiibos.service.hooks
 // Types
 import { CategoriesDrawerProps as Props } from "./CategoriesDrawer.types";
 
+import closeSVG from "../../../assets/images/times-solid.svg";
+
 const CategoriesDrawer: React.FC<Props> = (props) => {
   const { opened, onClose } = props;
   const { data: amiibos } = useFetchAmiibos();
@@ -31,7 +33,13 @@ const CategoriesDrawer: React.FC<Props> = (props) => {
   return (
     <div className="CategoriesDrawer">
       <Drawer opened={opened} backdrop onClose={onClose}>
-        <p className="CategoriesDrawer__title">Categorías</p>
+        <div className="CategoriesDrawer__header">
+          <p className="CategoriesDrawer__header__title">Categorías</p>
+
+          <picture className="CategoriesDrawer__header__icon" onClick={onClose}>
+            <img src={closeSVG} alt="Icono cerrar" />
+          </picture>
+        </div>
 
         <ul className="CategoriesDrawer__list">
           {categories.map((category, index) => {
