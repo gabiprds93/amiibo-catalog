@@ -4,7 +4,7 @@
   display: flex;
   height: 100%;
 
-  &__wrapper
+  &__content
     align-items: center;
     display: flex;
     flex: 1;
@@ -16,5 +16,27 @@
   &__logo
     width: 16rem;
 
-    & img
-      width: 100%;
+    &__icon
+      display: block;
+
+      & img
+        width: 100%;
+
+  &__favorites
+    align-items: center;
+    color: $color-black;
+    display: flex;
+    margin-left: 1.6rem;
+    text-decoration: none
+
+    &__text
+      font-size: 1.6rem;
+      padding-right: 1.6rem;
+
+    &__icon
+      height: 2.4rem;
+      width: 2.4rem;
+
+      & img
+        height: 100%;
+        width: 100%;

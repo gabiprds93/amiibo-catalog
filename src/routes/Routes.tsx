@@ -1,9 +1,10 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-// Pages./components/results/Results/Results";
+// Pages
 import HomeContainer from "../pages/Home.page";
 import CategoriesContainer from "../pages/Categories.page";
 import ResultsContainer from "../pages/Results.page";
+import FavoritesContainer from "../pages/Favorites.page";
 
 const Routes = () => {
   return (
@@ -19,6 +20,10 @@ const Routes = () => {
 
         <Route path="/categories/:amiiboSeries">
           <CategoriesContainer />
+        </Route>
+
+        <Route path="/favorites">
+          <FavoritesContainer />
         </Route>
       </Switch>
     </Router>
