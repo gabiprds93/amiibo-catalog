@@ -18,3 +18,14 @@ export interface Amiibo {
   name: string;
   type: string;
 }
+
+/** Key values information.
+ *
+ * @interface KeyValues
+ * @property {string} key The key of the value
+ * @property {string} name The name of the value
+ */
+export interface KeyValues {
+  key: string;
+  name: string;
+}

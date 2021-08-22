@@ -1,12 +1,11 @@
 // Types
-import { Amiibo } from "../types/amiibos.types";
 
 /** Utility to sort ascending.
  *
- * @param {Amiibo[]} list The list of the amiibos to sort ascending
- * @returns {Amiibo[]} Returns the list of amiibos sorted
+ * @param {any[]} list The list of the items to sort ascending
+ * @returns {any[]} Returns the list of items sorted
  */
-export const sortAscUtility = (list: Amiibo[]) => {
+export const sortAscUtility = (list: any[]) => {
   list.sort((item, nextItem) => {
     if (item.name > nextItem.name) {
       return 1;
@@ -24,10 +23,10 @@ export const sortAscUtility = (list: Amiibo[]) => {
 
 /** Utility to sort descending.
  *
- * @param {Amiibo[]} list The list of the amiibos to sort descending
- * @returns {Amiibo[]} Returns the list of amiibos sorted
+ * @param {any[]} list The list of the items to sort descending
+ * @returns {any[]} Returns the list of items sorted
  */
-export const sortDescUtility = (list: Amiibo[]) => {
+export const sortDescUtility = (list: any[]) => {
   list.sort((item, nextItem) => {
     if (item.name < nextItem.name) {
       return 1;

@@ -4,11 +4,13 @@ import { useEffect } from "react";
 import AmiiboList from "../../global/AmiiboList/AmiiboList";
 import Navbar from "../../global/Navbar/Navbar";
 import InfoBar from "../../global/InfoBar/InfoBar";
+import Filters from "../../global/Filters/Filters";
+// Contexts
+import useAmiibos from "../../../contexts/amiibos/amiibos.hooks";
 // Services
 import { useFetchAmiibos } from "../../../services/amiibos/amiibos.service.hooks";
 // Types
 import { HomeProps as Props } from "./Home.types";
-import useAmiibos from "../../../contexts/amiibos/amiibos.hooks";
 
 const Home: React.FC<Props> = (props) => {
   const { currentAmiiboList, setCurrentAmiiboList } = useAmiibos();
@@ -25,8 +27,13 @@ const Home: React.FC<Props> = (props) => {
       </header>
 
       <main className="Home__main">
-        <InfoBar title="Amiibos" />
-        <AmiiboList list={currentAmiiboList} />
+        <Filters />
+
+        <div className="Home__main__info">
+          <InfoBar title="Amiibos" />
+
+          <AmiiboList list={currentAmiiboList} />
+        </div>
       </main>
 
       <footer className="Home__footer" />
