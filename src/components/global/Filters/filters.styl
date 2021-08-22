@@ -2,6 +2,7 @@
   padding: 0 1.6rem;
 
   &__content
+    background-color var(--theme-foreground);
     border-radius: 0.8rem;
     box-shadow: 0 3px 8px $color-box-shadow;
     height: 70vh;
@@ -12,6 +13,23 @@
     top: 8.8rem;
     width: 27.2rem;
 
+    &::-webkit-scrollbar 
+      -webkit-appearance: none;
+
+    &::-webkit-scrollbar:vertical 
+      width: 0.8rem;
+
+    &::-webkit-scrollbar-button:increment
+      display: none;
+
+    &::-webkit-scrollbar-thumb 
+      background-color: $color-scroll;
+      border: 2px solid $color-white;
+      border-radius: 2.4rem;
+
+    &::-webkit-scrollbar-track 
+      border-radius: 0.8rem;
+
   &__title
     font-size: 1.8rem;
     font-weight: 700;
@@ -21,7 +39,6 @@
     border: none;
     border-radius: 3.2rem;
     box-shadow: 0 0.3rem .8rem $color-box-shadow;
-    color: $color-black;
     cursor: pointer;
     font-size: 1.4rem;
     margin-top: 1.6rem;

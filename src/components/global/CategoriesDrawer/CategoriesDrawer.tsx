@@ -4,15 +4,19 @@ import { useHistory } from "react-router-dom";
 import Drawer from "../Drawer/Drawer";
 // Helpers
 import { getCategoriesHelper } from "./CategoriesDrawer.helpers";
+// Contexts
+import useTheme from "../../../contexts/theme/theme.hooks";
 // Services
 import { useFetchAmiibos } from "../../../services/amiibos/amiibos.service.hooks";
 // Types
 import { CategoriesDrawerProps as Props } from "./CategoriesDrawer.types";
 
 import closeSVG from "../../../assets/images/times-solid.svg";
+import closeWhiteSVG from "../../../assets/images/times-solid-white.svg";
 
 const CategoriesDrawer: React.FC<Props> = (props) => {
   const { opened, onClose } = props;
+  const { isDarkMode } = useTheme();
   const { data: amiibos } = useFetchAmiibos();
   const { push } = useHistory();
 
@@ -37,7 +41,10 @@ const CategoriesDrawer: React.FC<Props> = (props) => {
           <p className="CategoriesDrawer__header__title">Categorías</p>
 
           <picture className="CategoriesDrawer__header__icon" onClick={onClose}>
-            <img src={closeSVG} alt="Icono cerrar" />
+            <img
+              src={isDarkMode ? closeWhiteSVG : closeSVG}
+              alt="Icono cerrar"
+            />
           </picture>
         </div>
 

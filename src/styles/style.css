@@ -1,5 +1,17 @@
+@import "react-toggle/style.css";
+html {
+  --theme-text: #000;
+  --theme-background: #fff6f6;
+  --theme-foreground: #fff;
+}
+html.dark {
+  --theme-text: #fff;
+  --theme-background: #000;
+  --theme-foreground: #222;
+}
 .AmiiboItem {
   align-items: center;
+  background-color: var(--theme-foreground);
   border-radius: 2.4rem;
   box-shadow: 0 3px 15px rgba(100,100,100,0.502);
   display: flex;
@@ -99,7 +111,6 @@
   width: 100%;
 }
 .SearchAmiibos__item__info {
-  color: #757a78;
   font-size: 1.6rem;
   font-weight: 400;
   padding-left: 2.4rem;
@@ -108,7 +119,6 @@
   display: flex;
 }
 .SearchAmiibos__search__link {
-  color: #000;
   cursor: pointer;
   font-size: 1.6rem;
   font-weight: 700;
@@ -143,7 +153,7 @@
   width: 2.4rem;
 }
 .SearchBar__results {
-  background-color: #fff;
+  background-color: var(--theme-foreground);
   border-radius: 1.6rem;
   box-shadow: 0 3px 15px rgba(100,100,100,0.502);
   display: flex;
@@ -167,7 +177,7 @@
   z-index: 99;
 }
 .Drawer {
-  background-color: #fff;
+  background-color: var(--theme-foreground);
   height: 100%;
   overflow: auto;
   position: fixed;
@@ -243,7 +253,6 @@
   border: none;
   border-radius: 3.2rem;
   box-shadow: 0 0.3rem 0.8rem rgba(100,100,100,0.502);
-  color: #000;
   cursor: pointer;
   font-size: 1.4rem;
   opacity: 1;
@@ -260,6 +269,7 @@
   padding: 0 1.6rem;
 }
 .Filters__content {
+  background-color: var(--theme-foreground);
   border-radius: 0.8rem;
   box-shadow: 0 3px 8px rgba(100,100,100,0.502);
   height: 70vh;
@@ -270,6 +280,23 @@
   top: 8.8rem;
   width: 27.2rem;
 }
+.Filters__content::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+.Filters__content::-webkit-scrollbar:vertical {
+  width: 0.8rem;
+}
+.Filters__content::-webkit-scrollbar-button:increment {
+  display: none;
+}
+.Filters__content::-webkit-scrollbar-thumb {
+  background-color: #9b9b9b;
+  border: 2px solid #fff;
+  border-radius: 2.4rem;
+}
+.Filters__content::-webkit-scrollbar-track {
+  border-radius: 0.8rem;
+}
 .Filters__title {
   font-size: 1.8rem;
   font-weight: 700;
@@ -279,7 +306,6 @@
   border: none;
   border-radius: 3.2rem;
   box-shadow: 0 0.3rem 0.8rem rgba(100,100,100,0.502);
-  color: #000;
   cursor: pointer;
   font-size: 1.4rem;
   margin-top: 1.6rem;
@@ -315,6 +341,26 @@
 .FilterItem__content__label > input {
   cursor: pointer;
 }
+.DarkToggle .react-toggle-track,
+.react-toggle:hover:not(.react-toggle--disabled) .react-toggle-track,
+.react-toggle .react-toggle-track {
+  background-color: #333 !important;
+}
+.react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track,
+.react-toggle--checked .react-toggle-track {
+  background-color: #fff !important;
+}
+.react-toggle--checked .react-toggle-thumb {
+  background-color: #333 !important;
+  border-color: transparent !important;
+}
+.react-toggle:active:not(.react-toggle--disabled) .react-toggle-thumb,
+.react-toggle--focus .react-toggle-thumb {
+  box-shadow: 0px 0px 5px 2px #fff !important;
+}
+.react-toggle-track-check {
+  top: -0.4rem !important;
+}
 .CategoriesMenu {
   z-index: 100;
 }
@@ -325,6 +371,7 @@
   margin-left: 1.6rem;
 }
 .CategoriesMenu__text {
+  color: #000;
   font-size: 1.6rem;
   padding-right: 1.6rem;
 }
@@ -355,6 +402,11 @@
 }
 .Home__main__info {
   padding: 0 1.6rem;
+}
+.Home__dark-toggle {
+  position: fixed;
+  top: 10.4rem;
+  right: 3.2rem;
 }
 .Results {
   padding-top: 8rem;
@@ -414,6 +466,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: var(--theme-text);
+  background-color: var(--theme-background);
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;

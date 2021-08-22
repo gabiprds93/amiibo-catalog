@@ -1,3 +1,4 @@
+@import "react-toggle/style.css"
 @import "./variables.styl"
 @import "../components/global/AmiiboItem/amiiboItem.styl";
 @import "../components/global/AmiiboList/amiiboList.styl";
@@ -11,6 +12,7 @@
 @import "../components/global/SortBy/sortBy.styl";
 @import "../components/global/Filters/filters.styl";
 @import "../components/global/Filters/FilterItem/filterItem.styl";
+@import "../components/global/DarkToggle/darkToggle.styl";
 @import "../components/home/CategoriesMenu/categoriesMenu.styl";
 @import "../components/home/Home/home.styl";
 @import "../components/results/Results/results.styl";
@@ -34,8 +36,9 @@ body
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: var(--theme-text);
+  background-color: var(--theme-background);
 
 code 
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-

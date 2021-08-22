@@ -6,6 +6,7 @@ import Routes from "../routes/Routes";
 // Contexts
 import AmiibosProvider from "../contexts/amiibos/amiibos.context";
 import FavoritesProvider from "../contexts/favorites/favorites.context";
+import ThemeProvider from "../contexts/theme/theme.context";
 // Types
 import { ProvidersProps as Props } from "./Providers.types";
 
@@ -24,11 +25,13 @@ const Providers: React.FC<Props> = (props) => {
 
   return (
     <QueryClientProvider client={queryClientRef.current}>
-      <FavoritesProvider>
-        <AmiibosProvider>
-          <Routes />
-        </AmiibosProvider>
-      </FavoritesProvider>
+      <ThemeProvider>
+        <FavoritesProvider>
+          <AmiibosProvider>
+            <Routes />
+          </AmiibosProvider>
+        </FavoritesProvider>
+      </ThemeProvider>
     </QueryClientProvider>
   );
 };

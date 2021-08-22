@@ -5,6 +5,7 @@ import AmiiboList from "../../global/AmiiboList/AmiiboList";
 import Navbar from "../../global/Navbar/Navbar";
 import InfoBar from "../../global/InfoBar/InfoBar";
 import Filters from "../../global/Filters/Filters";
+import DarkToggle from "../../global/DarkToggle/DarkToggle";
 // Contexts
 import useAmiibos from "../../../contexts/amiibos/amiibos.hooks";
 // Services
@@ -27,6 +28,10 @@ const Home: React.FC<Props> = (props) => {
       </header>
 
       <main className="Home__main">
+        <div className="Home__dark-toggle">
+          <DarkToggle />
+        </div>
+
         <Filters />
 
         <div className="Home__main__info">
