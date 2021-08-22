@@ -16,8 +16,12 @@ export interface AmiibosProviderProps {
  * @interface AmiibosProviderValue
  * @property {Amiibo[]} amiibosFiltered The array of amiibos filtered
  * @property {Dispatch<React.SetStateAction<Amiibo[]>>} setAmiibosFiltered For change state of the amiibosFiltered
+ * @property {Amiibo[]} currentAmiiboList The array of current list of amiibos filtered
+ * @property {Dispatch<React.SetStateAction<Amiibo[]>>} setCurrentAmiiboList For change state of the currentAmiiboList
  */
 export interface AmiibosProviderValue {
   amiibosFiltered: Amiibo[] | undefined;
   setAmiibosFiltered: Dispatch<React.SetStateAction<Amiibo[] | undefined>>;
+  currentAmiiboList: Amiibo[] | undefined;
+  setCurrentAmiiboList: Dispatch<React.SetStateAction<Amiibo[] | undefined>>;
 }

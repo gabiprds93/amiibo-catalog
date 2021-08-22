@@ -4,6 +4,9 @@ import { useRouteMatch } from "react-router-dom";
 // Components
 import Navbar from "../../global/Navbar/Navbar";
 import AmiiboList from "../../global/AmiiboList/AmiiboList";
+import InfoBar from "../../global/InfoBar/InfoBar";
+// Contexts
+import useAmiibos from "../../../contexts/amiibos/amiibos.hooks";
 // Services
 import { fetchAmiibos } from "../../../services/amiibos/amiibos.service";
 // Types
@@ -12,7 +15,10 @@ import { Amiibo } from "../../../types/amiibos.types";
 
 const Categories: React.FC<Props> = (props) => {
   const [amiibosByCategory, setAmiibosByCategory] = useState<Amiibo[]>();
-  const { params } = useRouteMatch();
+  const { currentAmiiboList, setCurrentAmiiboList } = useAmiibos();
+  const { params } = useRouteMatch<{ amiiboSeries: string }>();
+
+  const { amiiboSeries } = params;
 
   useEffect(() => {
     if (params) {
@@ -23,6 +29,10 @@ const Categories: React.FC<Props> = (props) => {
     }
   }, [params]);
 
+  useEffect(() => {
+    if (amiibosByCategory) setCurrentAmiiboList(amiibosByCategory);
+  }, [amiibosByCategory, setCurrentAmiiboList]);
+
   return (
     <div className="Categories">
       <header className="Categories__header">
@@ -30,7 +40,8 @@ const Categories: React.FC<Props> = (props) => {
       </header>
 
       <main className="Categories__main">
-        <AmiiboList list={amiibosByCategory} />
+        <InfoBar title={amiiboSeries} />
+        <AmiiboList list={currentAmiiboList} />
       </main>
 
       <footer className="Categories__footer" />

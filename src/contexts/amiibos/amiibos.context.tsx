@@ -11,13 +11,15 @@ export const AmiibosContext = createContext<AmiibosProviderValue>();
 
 const AmiibosProvider: React.FC<Props> = (props) => {
   const [amiibosFiltered, setAmiibosFiltered] = useState<Amiibo[]>();
+  const [currentAmiiboList, setCurrentAmiiboList] = useState<Amiibo[]>();
 
   const value: AmiibosProviderValue = useMemo(() => {
     return {
       amiibosFiltered,
       setAmiibosFiltered,
+      currentAmiiboList, setCurrentAmiiboList
     };
-  }, [amiibosFiltered]);
+  }, [amiibosFiltered, currentAmiiboList]);
 
   return (
     <AmiibosContext.Provider value={value}>
