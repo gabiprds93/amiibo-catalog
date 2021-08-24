@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useMediaQuery } from "react-responsive";
 
 // Components
 import AmiiboList from "../../global/AmiiboList/AmiiboList";
@@ -12,10 +13,17 @@ import useAmiibos from "../../../contexts/amiibos/amiibos.hooks";
 import { useFetchAmiibos } from "../../../services/amiibos/amiibos.service.hooks";
 // Types
 import { HomeProps as Props } from "./Home.types";
+// Configs
+import CONSTANTS from "../../../configs/constants";
+
+const { BREAKPOINTS } = CONSTANTS;
 
 const Home: React.FC<Props> = (props) => {
   const { currentAmiiboList, setCurrentAmiiboList } = useAmiibos();
   const { data: amiibos } = useFetchAmiibos();
+  const isDesktop = useMediaQuery({
+    query: `(min-width: ${BREAKPOINTS.desktop}px)`,
+  });
 
   useEffect(() => {
     if (amiibos) setCurrentAmiiboList(amiibos);
@@ -32,10 +40,10 @@ const Home: React.FC<Props> = (props) => {
           <DarkToggle />
         </div>
 
-        <Filters />
+        <InfoBar title="Amiibos" />
 
         <div className="Home__main__info">
-          <InfoBar title="Amiibos" />
+          {isDesktop ? <Filters /> : null}
 
           <AmiiboList list={currentAmiiboList} />
         </div>

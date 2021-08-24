@@ -12,13 +12,22 @@
 
   &__main
     display: flex;
+    flex-direction: column;
     justify-content: center;
     padding-top: $size-header-height;
 
     &__info
-      padding: 0 1.6rem;
+      display: flex;
+      justify-content: center;
 
   &__dark-toggle
-      position: fixed;
-      top: 10.4rem;
-      right: 3.2rem;
+    position: fixed;
+    top: 10.4rem;
+    right: 3.2rem;
+
+@media (max-width: $mobile)
+  .Home
+    padding-top: $size-header-height-mobile;
+
+    &__header
+      height: $size-header-height-mobile;

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 // Component
-import CategoriesDrawer from "../../global/CategoriesDrawer/CategoriesDrawer";
+import CategoriesDrawer from "../CategoriesDrawer/CategoriesDrawer";
 // Types
 import { CategoriesMenuProps as Props } from "./CategoriesMenu.types";
 

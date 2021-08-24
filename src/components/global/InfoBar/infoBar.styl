@@ -5,8 +5,19 @@
   &__grid
     display: grid;
     gap: 2.4rem;
-    grid-template-columns: repeat(2, 32rem);
+    grid-template-columns: repeat(2, 48rem);
     padding-bottom: 2.4rem;
 
     &__title
       font-size: 4rem;
+
+@media (max-width: $desktop)
+  .InfoBar
+    &__grid
+      grid-template-columns: repeat(3, 1fr);
+
+@media (max-width: $tablet)
+  .InfoBar
+    &__grid
+      &__title
+        text-align: center;

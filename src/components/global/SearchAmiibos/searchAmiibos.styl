@@ -8,7 +8,10 @@
     padding: 1.6rem;
 
     &__image
+      align-items: center;
+      display: flex;
       height: 6.4rem;
+      justify-content: center;
       width: 6.4rem;
 
       & img
@@ -29,3 +32,8 @@
       font-size: 1.6rem;
       font-weight: 700;
       padding: 2.4rem;
+
+@media (max-width: $mobile)
+  .SearchAmiibos
+    max-width: 100%;
+    order: 1;

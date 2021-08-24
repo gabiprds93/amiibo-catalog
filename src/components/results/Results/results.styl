@@ -2,8 +2,8 @@
   padding-top: $size-header-height;
   
   &__header
-    background: #fff;
-    height: 8rem;
+    background-color: $color-white;
+    height: $size-header-height;
     left: 0;
     position: fixed;
     right: 0;
@@ -11,3 +11,10 @@
 
   &__main
     padding-top: $size-header-height;
+
+@media (max-width: $mobile)
+  .Results
+    padding-top: $size-header-height-mobile;
+
+    &__header
+      height: $size-header-height-mobile;
