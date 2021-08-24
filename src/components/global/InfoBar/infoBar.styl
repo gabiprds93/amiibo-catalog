@@ -2,22 +2,51 @@
   display: flex;
   justify-content: center;
 
-  &__grid
-    display: grid;
-    gap: 2.4rem;
-    grid-template-columns: repeat(2, 48rem);
-    padding-bottom: 2.4rem;
+  &__content
+    padding-bottom: 3.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    max-width: 100rem;
 
     &__title
       font-size: 4rem;
 
+    &__modifiers
+      display: flex;
+
+  &__button-wrapper
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+
 @media (max-width: $desktop)
   .InfoBar
-    &__grid
-      grid-template-columns: repeat(3, 1fr);
+    &__content
+      max-width: 69.6rem;
+    
+    &__button-wrapper
+      margin-right: 1.6rem
 
 @media (max-width: $tablet)
   .InfoBar
-    &__grid
+    &__content
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 46.4rem;
+
       &__title
+        padding-bottom: 2.4rem;
         text-align: center;
+
+@media (max-width: $mobile)
+  .InfoBar
+    &__content
+      &__modifiers
+        flex-wrap: wrap;
+        justify-content: center;
+
+    &__button-wrapper
+      margin: 0 1.6rem;
+      padding-bottom: 1.6rem;

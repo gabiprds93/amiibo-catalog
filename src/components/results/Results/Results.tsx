@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import AmiiboList from "../../global/AmiiboList/AmiiboList";
 import Navbar from "../../global/Navbar/Navbar";
 import InfoBar from "../../global/InfoBar/InfoBar";
+import DarkToggle from "../../global/DarkToggle/DarkToggle";
 // Contexts
 import useAmiibos from "../../../contexts/amiibos/amiibos.hooks";
 // Types
@@ -24,7 +25,12 @@ const Results: React.FC<Props> = (props) => {
       </header>
 
       <main className="Results__main">
+        <div className="Home__dark-toggle">
+          <DarkToggle />
+        </div>
+
         <InfoBar title="Resultados" />
+
         <AmiiboList list={currentAmiiboList} />
       </main>
 

@@ -5,6 +5,7 @@ import { useRouteMatch } from "react-router-dom";
 import Navbar from "../../global/Navbar/Navbar";
 import AmiiboList from "../../global/AmiiboList/AmiiboList";
 import InfoBar from "../../global/InfoBar/InfoBar";
+import DarkToggle from "../../global/DarkToggle/DarkToggle";
 // Contexts
 import useAmiibos from "../../../contexts/amiibos/amiibos.hooks";
 // Services
@@ -40,7 +41,12 @@ const Categories: React.FC<Props> = (props) => {
       </header>
 
       <main className="Categories__main">
+        <div className="Home__dark-toggle">
+          <DarkToggle />
+        </div>
+
         <InfoBar title={amiiboSeries} />
+
         <AmiiboList list={currentAmiiboList} />
       </main>
 

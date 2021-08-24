@@ -12,9 +12,17 @@
   &__main
     padding-top: $size-header-height;
 
+  &__dark-toggle
+    position: fixed;
+    top: 10.4rem;
+    right: 3.2rem;
+
 @media (max-width: $mobile)
   .Categories
     padding-top: $size-header-height-mobile;
 
     &__header
       height: $size-header-height-mobile;
+
+    &__dark-toggle
+      top: $size-header-height * 2
