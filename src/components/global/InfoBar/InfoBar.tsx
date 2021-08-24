@@ -29,10 +29,10 @@ const InfoBar: React.FC<Props> = (props) => {
 
   return (
     <div className="InfoBar">
-      <div className="InfoBar__wrapper">
-        <h1 className="InfoBar__wrapper__title">{title}</h1>
+      <div className="InfoBar__content">
+        <h1 className="InfoBar__content__title">{title}</h1>
 
-        <div className="InfoBar__wrapper__modifiers">
+        <div className="InfoBar__content__modifiers">
           {!isDesktop ? (
             <div className="InfoBar__button-wrapper">
               <Button type="button" value="Filtros" onClick={drawerHandler} />
