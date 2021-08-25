@@ -1,5 +1,4 @@
 import React, { createContext, useMemo, useState } from "react";
-import { ContextDevTool } from "react-context-devtool";
 
 // Types
 import { FiltersProviderProps as Props } from "./filters.context.types";
@@ -23,12 +22,6 @@ const FiltersProvider: React.FC<Props> = (props) => {
 
   return (
     <FiltersContext.Provider value={value}>
-      <ContextDevTool
-        context={FiltersContext}
-        id="filters"
-        displayName="Filters"
-      />
-
       {props.children}
     </FiltersContext.Provider>
   );

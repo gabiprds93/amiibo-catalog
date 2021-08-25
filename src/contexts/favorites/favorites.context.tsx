@@ -1,5 +1,4 @@
 import React, { createContext, useEffect, useMemo, useState } from "react";
-import { ContextDevTool } from "react-context-devtool";
 
 // Utils
 import { getLocalStorage } from "../../utils/common.util";
@@ -32,12 +31,6 @@ const FavoritesProvider: React.FC<Props> = (props) => {
 
   return (
     <FavoritesContext.Provider value={value}>
-      <ContextDevTool
-        context={FavoritesContext}
-        id="favorites"
-        displayName="Favorites"
-      />
-
       {props.children}
     </FavoritesContext.Provider>
   );

@@ -1,5 +1,4 @@
 import React, { createContext, useMemo, useState } from "react";
-import { ContextDevTool } from "react-context-devtool";
 
 // Types
 import { AmiibosProviderProps as Props } from "./amiibos.context.types";
@@ -17,18 +16,13 @@ const AmiibosProvider: React.FC<Props> = (props) => {
     return {
       amiibosFiltered,
       setAmiibosFiltered,
-      currentAmiiboList, setCurrentAmiiboList
+      currentAmiiboList,
+      setCurrentAmiiboList,
     };
   }, [amiibosFiltered, currentAmiiboList]);
 
   return (
     <AmiibosContext.Provider value={value}>
-      <ContextDevTool
-        context={AmiibosContext}
-        id="amiibos"
-        displayName="Amiibos"
-      />
-
       {props.children}
     </AmiibosContext.Provider>
   );

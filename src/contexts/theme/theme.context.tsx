@@ -1,5 +1,4 @@
 import React, { createContext, useMemo, useState } from "react";
-import { ContextDevTool } from "react-context-devtool";
 import { useMediaQuery } from "react-responsive";
 
 // Types
@@ -28,8 +27,6 @@ const ThemeProvider: React.FC<Props> = (props) => {
 
   return (
     <ThemeContext.Provider value={value}>
-      <ContextDevTool context={ThemeContext} id="theme" displayName="Theme" />
-
       {props.children}
     </ThemeContext.Provider>
   );

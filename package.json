@@ -47,7 +47,6 @@
   "devDependencies": {
     "@types/react": "^17.0.19",
     "@types/react-router-dom": "^5.1.8",
-    "@types/react-toggle": "^4.0.3",
-    "react-context-devtool": "^2.0.3"
+    "@types/react-toggle": "^4.0.3"
   }
 }
