@@ -41,7 +41,7 @@ The style preprocessor [Stylus](https://github.com/stylus/stylus) was also used.
 
 You can test the web application in this [link](https://amiibo-catalog.herokuapp.com/) hosted on [Heroku](https://www.heroku.com/).
 
-####Enjoy it! :smile:
+#### Enjoy it! :smile:
 
 ---
 
