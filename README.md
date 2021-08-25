@@ -33,11 +33,11 @@ The style preprocessor [Stylus](https://github.com/stylus/stylus) was also used.
 
 - The next step is to install the dependencies with the following command:
   
-   `npm install`
+  `npm install`
 
 - Finally, to get the project up you have to run the following command:
 
-  `npm start`
+  `npm run start`
 
 You can test the web application in this [link](https://amiibo-catalog.herokuapp.com/) hosted on [Heroku](https://www.heroku.com/).
 
@@ -47,7 +47,6 @@ You can test the web application in this [link](https://amiibo-catalog.herokuapp
 
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
