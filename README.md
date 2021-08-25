@@ -41,6 +41,8 @@ The style preprocessor [Stylus](https://github.com/stylus/stylus) was also used.
 
 You can test the web application in this [link](https://amiibo-catalog.herokuapp.com/) hosted on [Heroku](https://www.heroku.com/).
 
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
