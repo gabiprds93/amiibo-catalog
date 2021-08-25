@@ -6,7 +6,7 @@ Only on the Home page, you can be filtered by Type and Character, also can be se
 
 # Tech stack
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and [TypeScript](https://github.com/Microsoft/TypeScript).
+This is a [ReactJs](https://reactjs.org/) project bootstrapped with [`create-react-app`](https://github.com/facebook/create-react-app) and [TypeScript](https://github.com/Microsoft/TypeScript).
 
 The following libraries were also used:
 - [Axios](https://axios-http.com/) to consume API.
@@ -40,6 +40,8 @@ The style preprocessor [Stylus](https://github.com/stylus/stylus) was also used.
   `npm start`
 
 You can test the web application in this [link](https://amiibo-catalog.herokuapp.com/) hosted on [Heroku](https://www.heroku.com/).
+
+####Enjoy it! :smile:
 
 ---
 
