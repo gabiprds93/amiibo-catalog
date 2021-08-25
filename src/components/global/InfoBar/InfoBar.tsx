@@ -9,12 +9,14 @@ import FiltersDrawer from "../FiltersDrawer/FiltersDrawer";
 import { InfoBarProps as Props } from "./InfoBar.types";
 // Configs
 import CONSTANTS from "../../../configs/constants";
+import { useRouteMatch } from "react-router-dom";
 
 const { BREAKPOINTS } = CONSTANTS;
 
 const InfoBar: React.FC<Props> = (props) => {
   const { title } = props;
   const [drawerOpened, setDrawerOpened] = useState(false);
+  const { path } = useRouteMatch();
   const isDesktop = useMediaQuery({
     query: `(min-width: ${BREAKPOINTS.desktop}px)`,
   });
@@ -33,7 +35,7 @@ const InfoBar: React.FC<Props> = (props) => {
         <h1 className="InfoBar__content__title">{title}</h1>
 
         <div className="InfoBar__content__modifiers">
-          {!isDesktop ? (
+          {!isDesktop && path === "/" ? (
             <div className="InfoBar__button-wrapper">
               <Button type="button" value="Filtros" onClick={drawerHandler} />
             </div>
